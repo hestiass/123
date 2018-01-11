@@ -40,14 +40,16 @@ def handle_text(message):
     log(message, answer)
     bot.send_message(message.chat.id, answer)
 
+@bot.message_handler(commands=['support'])
+def handle_text(message):
+    answer = "plz text me smt right here - @hestias"
+    log(message, answer)
+    bot.send_message(message.chat.id, answer)
+
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
     answer = "You printed something weird, I wont even try to understand this"
-    if message.text == "/support":
-        answer = "plz text me smt right here - @hestias"
-        log(message, answer)
-        bot.send_message(message.chat.id, answer)
-    elif message.text == "Deus":
+    if message.text == "Deus":
         answer = "Vult!"
         log(message, answer)
         bot.send_message(message.chat.id, answer)
